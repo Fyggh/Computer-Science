@@ -1,16 +1,33 @@
 package io.github.fyggh;
 
+import java.util.Random;
+import java.util.Scanner;
+
 public class Main {
 	
 	/**
 	 * Number defined as one greater than FIFTY_THREE
 	 */
 	private final static int FIFTY_FOUR = 54;
+	
+	/**
+	 * Number halfway between TWELVE and THIRTEEN
+	 */
+	private final static double TWELVE_POINT_FIVE = 12.5;
+	
+	Random rand = new Random(200503041L);
+	private Scanner scan = new Scanner(System.in);
 
 	public static void main(String[] args) {
 		 
 		System.out.println(GET_FIFTY_FOUR());
+		System.out.println(TWELVE_POINT_FIVE);
+		System.out.println(FIFTY_FOUR + (int) TWELVE_POINT_FIVE);
 
+		
+		
+		System.out.println();
+		
 	}
 
 	/**
