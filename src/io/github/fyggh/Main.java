@@ -16,7 +16,7 @@ public class Main {
 	private final static double TWELVE_POINT_FIVE = 12.5;
 	
 	Random rand = new Random(200503041L);
-	private Scanner scan = new Scanner(System.in);
+	private static Scanner scan = new Scanner(System.in);
 
 	public static void main(String[] args) {
 		 
@@ -26,7 +26,7 @@ public class Main {
 
 		
 		
-		System.out.println();
+		System.out.println(scan.nextInt());
 		
 	}
 
