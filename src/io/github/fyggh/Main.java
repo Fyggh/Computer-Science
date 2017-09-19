@@ -3,6 +3,7 @@ package io.github.fyggh;
 import java.util.Random;
 import java.util.Scanner;
 
+import io.github.fyggh.face.FaceViewer;
 import io.github.fyggh.gui.FrameViewer;
 
 public class Main {
@@ -26,9 +27,11 @@ public class Main {
 		System.out.println(TWELVE_POINT_FIVE);
 		System.out.println(FIFTY_FOUR + (int) TWELVE_POINT_FIVE);
 
-		FrameViewer viewer = new FrameViewer();
-		viewer.initializeFrame();
+		//FrameViewer viewer = new FrameViewer();
+		//viewer.initializeFrame();
 		
+		FaceViewer viewer = new FaceViewer();
+		viewer.initializeFrame();
 		//System.out.println(scan.nextInt());
 		
 	}
