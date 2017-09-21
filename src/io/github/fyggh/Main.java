@@ -3,6 +3,7 @@ package io.github.fyggh;
 import java.util.Random;
 import java.util.Scanner;
 
+import io.github.fyggh.bankaccount.BankAccount;
 import io.github.fyggh.face.FaceViewer;
 import io.github.fyggh.gui.FrameViewer;
 
@@ -23,16 +24,22 @@ public class Main {
 
 	public static void main(String[] args) {
 		 
-		System.out.println(GET_FIFTY_FOUR());
-		System.out.println(TWELVE_POINT_FIVE);
-		System.out.println(FIFTY_FOUR + (int) TWELVE_POINT_FIVE);
+//		System.out.println(GET_FIFTY_FOUR());
+//		System.out.println(TWELVE_POINT_FIVE);
+//		System.out.println(FIFTY_FOUR + (int) TWELVE_POINT_FIVE);
 
 		//FrameViewer viewer = new FrameViewer();
 		//viewer.initializeFrame();
 		
-		FaceViewer viewer = new FaceViewer();
-		viewer.initializeFrame();
+//		FaceViewer viewer = new FaceViewer();
+//		viewer.initializeFrame();
 		//System.out.println(scan.nextInt());
+		
+		BankAccount acct1 = new BankAccount();
+		System.out.println(acct1.getBalance());
+		acct1.deposit(0.07);
+		acct1.withdraw(0.05);
+		System.out.println(acct1.getBalance());
 		
 	}
 
