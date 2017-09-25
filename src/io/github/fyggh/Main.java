@@ -1,9 +1,12 @@
 package io.github.fyggh;
 
+import java.util.List;
 import java.util.Random;
 import java.util.Scanner;
 
+import io.github.fyggh.algorithms.helpers.RandomArrayList;
 import io.github.fyggh.bankaccount.BankAccount;
+import io.github.fyggh.bankaccount.SavingsAccount;
 import io.github.fyggh.face.FaceViewer;
 import io.github.fyggh.gui.FrameViewer;
 
@@ -41,6 +44,18 @@ public class Main {
 		acct1.withdraw(0.05);
 		System.out.println(acct1.getBalance());
 		
+		System.out.println();
+		
+		SavingsAccount acct2 = new SavingsAccount();
+		acct2.deposit(FIFTY_FOUR);
+		System.out.println(acct2.getBalance());
+		acct2.addInterest();
+		System.out.println(acct2.getBalance());
+		SavingsAccount.setInterestRate(FIFTY_FOUR);
+		acct2.addInterest();
+		System.out.println(acct2.getBalance());
+		
+		List<Integer> list = new RandomArrayList<Integer>(null, 0);
 	}
 
 	/**

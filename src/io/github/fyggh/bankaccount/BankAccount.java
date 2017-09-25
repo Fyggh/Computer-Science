@@ -11,13 +11,13 @@ public class BankAccount {
 	
 	private static final double DEFAULT_BALANCE = 0.0;
 	private static final String DEFAULT_NAME = "";
-	private static final int DEFAULT_ACCOUNTNUMBER = 111111111;
+	private static final int DEFAULT_ACCOUNT_NUMBER = 111111111;
 	
 	/**
 	 * 
 	 */
 	public BankAccount() { //default constructor
-		this(DEFAULT_BALANCE, DEFAULT_NAME, DEFAULT_ACCOUNTNUMBER);
+		this(DEFAULT_BALANCE, DEFAULT_NAME, DEFAULT_ACCOUNT_NUMBER);
 	}
 
 
@@ -57,7 +57,7 @@ public class BankAccount {
 	/**
 	 * @param balance the balance to set
 	 */
-	private void setBalance(double balance) {
+	protected void setBalance(double balance) {
 		this.balance = balance;
 	}
 
