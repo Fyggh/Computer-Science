@@ -3,8 +3,10 @@ package io.github.fyggh;
 import java.util.List;
 import java.util.Random;
 import java.util.Scanner;
+import java.util.function.Function;
 
 import io.github.fyggh.algorithms.helpers.RandomArrayList;
+import io.github.fyggh.algorithms.search.binary.BinarySearch;
 import io.github.fyggh.bankaccount.BankAccount;
 import io.github.fyggh.bankaccount.SavingsAccount;
 import io.github.fyggh.face.FaceViewer;
@@ -55,7 +57,10 @@ public class Main {
 		acct2.addInterest();
 		System.out.println(acct2.getBalance());
 		
-		List<Integer> list = new RandomArrayList<Integer>(null, 0);
+		List<Integer> list = new RandomArrayList<Integer>(rand -> rand.nextInt(), 10);
+		System.out.println(list.toString());
+		System.out.println(BinarySearch.search(list, 5));
+		
 	}
 
 	/**
