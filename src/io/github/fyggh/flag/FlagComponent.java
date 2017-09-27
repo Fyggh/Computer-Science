@@ -54,6 +54,14 @@ public class FlagComponent extends JComponent {
 		
 	}
 	
+	/**
+	 * Don't use this constructor; it's not ready yet
+	 * 
+	 * @deprecated
+	 * @param x
+	 * @param y
+	 * @param height
+	 */
 	public FlagComponent(int x, int y, double height) {
 		
 		this.x = x;

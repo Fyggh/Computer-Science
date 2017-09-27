@@ -65,6 +65,8 @@ public class Main {
 		FlagViewer viewer = new FlagViewer();
 		viewer.initializeFrame();
 		
+		// https://stackoverflow.com/questions/8261543/how-do-i-get-a-graphic2d-object-to-follow-a-mouse-pointer-exactly-in-java
+		
 	}
 
 	/**
