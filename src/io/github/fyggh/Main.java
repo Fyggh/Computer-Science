@@ -10,6 +10,7 @@ import io.github.fyggh.algorithms.search.binary.BinarySearch;
 import io.github.fyggh.bankaccount.BankAccount;
 import io.github.fyggh.bankaccount.SavingsAccount;
 import io.github.fyggh.face.FaceViewer;
+import io.github.fyggh.flag.FlagViewer;
 import io.github.fyggh.gui.FrameViewer;
 
 public class Main {
@@ -60,6 +61,9 @@ public class Main {
 		List<Integer> list = new RandomArrayList<Integer>(rand -> rand.nextInt(), 10);
 		System.out.println(list.toString());
 		System.out.println(BinarySearch.search(list, 5));
+		
+		FlagViewer viewer = new FlagViewer();
+		viewer.initializeFrame();
 		
 	}
 
