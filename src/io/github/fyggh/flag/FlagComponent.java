@@ -92,6 +92,11 @@ public class FlagComponent extends JComponent {
 		g2.fill(redThird);
 		
 	}
+	
+	@Override
+	public void mouseMoved() {
+		
+	}
 
 }
 

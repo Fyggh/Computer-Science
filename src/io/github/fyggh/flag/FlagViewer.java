@@ -1,15 +1,20 @@
 package io.github.fyggh.flag;
 
+import java.awt.BorderLayout;
+import java.awt.event.MouseListener;
+
 import javax.swing.JComponent;
 import javax.swing.JFrame;
 import javax.swing.JMenu;
 import javax.swing.JMenuBar;
 import javax.swing.JMenuItem;
+import javax.swing.JPanel;
 import javax.swing.JTextField;
 
 public class FlagViewer {
 
 	JFrame frame = new JFrame();
+	JPanel panel = new MouseDemo(new BorderLayout());
 	
 	JComponent textBox = new JTextField();
 	JTextField anotherBox = new JTextField();
@@ -26,15 +31,19 @@ public class FlagViewer {
 	public void initializeFrame() {
 		
 		frame.setTitle("Hello World");
-		frame.setSize(600, 400);
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		frame.setSize(200, 200);
+		
+		panel.setOpaque(true);
+		
+		frame.setContentPane(panel);
 		
 		//frame.setBackground(Color.WHITE);
 		
-		frame.setJMenuBar(createMenuBar());
+		//frame.setJMenuBar(createMenuBar());
 		
 		//frame.add(anotherBox);
-		frame.add(flag);
+		//frame.add(flag);
 		
 		frame.setVisible(true);
 
