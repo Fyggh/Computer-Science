@@ -12,6 +12,7 @@ import io.github.fyggh.bankaccount.SavingsAccount;
 import io.github.fyggh.face.FaceViewer;
 import io.github.fyggh.flag.FlagViewer;
 import io.github.fyggh.gui.FrameViewer;
+import io.github.fyggh.zoo.AardvarkViewer;
 
 public class Main {
 	
@@ -62,7 +63,7 @@ public class Main {
 		System.out.println(list.toString());
 		System.out.println(BinarySearch.search(list, 5));
 		
-		FlagViewer viewer = new FlagViewer();
+		AardvarkViewer viewer = new AardvarkViewer();
 		viewer.initializeFrame();
 		
 		// https://stackoverflow.com/questions/8261543/how-do-i-get-a-graphic2d-object-to-follow-a-mouse-pointer-exactly-in-java

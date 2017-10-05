@@ -93,10 +93,12 @@ public class FlagComponent extends JComponent {
 		
 	}
 	
+	/*
 	@Override
 	public void mouseMoved() {
 		
 	}
+	*/
 
 }
 
