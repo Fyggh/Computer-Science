@@ -15,9 +15,10 @@ import javax.swing.JComponent;
  * @author 200503041
  *
  */
-public class Aardvark {
+public abstract class Aardvark {
 
-	private int x, y;
+	private int x;
+	private int y;
 	private int numPoints;
 	
 	private double[] xPoints = {5.0, 300, 30};
@@ -26,7 +27,7 @@ public class Aardvark {
 	/**
 	 * 
 	 */
-	public Aardvark() {
+	protected Aardvark() {
 		super();
 		numPoints = xPoints.length;
 	}
@@ -34,7 +35,7 @@ public class Aardvark {
 	/**
 	 * 
 	 */
-	public Aardvark(int x, int y) {
+	protected Aardvark(int x, int y) {
 		
 		this.x = x;
 		this.y = y;
@@ -65,5 +66,40 @@ public class Aardvark {
 		g2.fill(where);
 	}
 
+	public static class Cartoon extends Aardvark {
+
+		private int x, y;
+		private int numPoints;
+		
+		
+		/**
+		 * 
+		 */
+		public Cartoon() {
+			this(0,0);
+			// TODO Auto-generated constructor stub
+		}
+
+		/**
+		 * @param x
+		 * @param y
+		 */
+		public Cartoon(int x, int y) {
+			
+			this.x = x;
+			this.y = y;
+			this.y = Math.abs(y);
+			
+		}
+		
+		public void paint(Graphics2D g2) {
+			
+			
+			
+			
+		}
+		
+	}
+	
 	
 }
