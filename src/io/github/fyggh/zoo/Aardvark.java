@@ -3,11 +3,21 @@
  */
 package io.github.fyggh.zoo;
 
+import java.awt.BasicStroke;
 import java.awt.Color;
 import java.awt.Graphics;
 import java.awt.Graphics2D;
+import java.awt.Paint;
+import java.awt.Shape;
+import java.awt.Stroke;
 import java.awt.geom.Ellipse2D;
+import java.awt.geom.Line2D;
 import java.awt.geom.Path2D;
+import java.awt.geom.Rectangle2D;
+import java.awt.geom.Arc2D;
+import java.util.HashMap;
+import java.util.Map;
+import java.util.TreeMap;
 
 import javax.swing.JComponent;
 
@@ -71,6 +81,19 @@ public abstract class Aardvark {
 		private int x, y;
 		private int numPoints;
 		
+		private Map<Shape, Color> layer0 = new HashMap<>();
+		private Map<Integer, Map<Shape, Color>> shapeMap = new TreeMap<>();
+		
+		private Object[][] layer0Array = { { new Line2D.Double(1, 34, 200, 21) }, { Color.BLACK } };
+		
+		private Rectangle2D tailBoundingBox = new Rectangle2D.Double(x + 5, y + 5, 50, 150);
+		private Shape tailStroke = new Arc2D.Double(tailBoundingBox, 0, 100, Arc2D.OPEN);
+		private Ellipse2D tail = new Ellipse2D.Double(x + 5, y + 5, 50, 150);
+		
+		private final static Color AARDVARK_YELLOW = new Color(255, 213, 29);
+		private final static Color AARDVARK_BLUE = new Color(0, 93, 171);
+		private final static int AARDVARK_STROKE_WIDTH = 6;
+		
 		
 		/**
 		 * 
@@ -90,15 +113,50 @@ public abstract class Aardvark {
 			this.y = y;
 			this.y = Math.abs(y);
 			
+			//layer0.put(new Ellipse2D.Double(this.x, this.y, 50, 20), Color.BLUE);
+			
+			shapeMap.put(1, layer0);
+			
 		}
 		
 		public void paint(Graphics2D g2) {
 			
+			paintShape(g2, tail, Cartoon.AARDVARK_YELLOW, Cartoon.AARDVARK_STROKE_WIDTH, Cartoon.AARDVARK_BLUE);
 			
-			
+			//array logic
+			/*
+			for (int i = 0; i < layer0Array[0].length; i++) {
+				
+				g2.setColor((Color) layer0Array[1][i]);
+				g2.draw((Shape) layer0Array[0][i]);
+				
+			}
+			*/
 			
 		}
 		
+		public void paintShape(Graphics2D g2, Shape shape, Paint fillPaint, Stroke stroke, Paint strokePaint) {
+			
+			Stroke origStroke = g2.getStroke();
+			Paint origPaint = g2.getPaint();
+			
+			g2.setPaint(fillPaint);
+			g2.fill(shape);
+			
+			g2.setStroke(stroke);
+			g2.setPaint(strokePaint);
+			g2.draw(shape);
+			
+			g2.setStroke(origStroke);
+			g2.setPaint(origPaint);
+			
+		}
+		
+		public void paintShape(Graphics2D g2, Shape shape, Paint fillPaint, int strokeWidth, Paint strokePaint) {
+			
+			paintShape(g2, shape, fillPaint, new BasicStroke(strokeWidth), strokePaint);
+			
+		}
 	}
 	
 	
