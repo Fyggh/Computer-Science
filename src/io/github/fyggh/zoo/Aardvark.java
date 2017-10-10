@@ -76,6 +76,51 @@ public abstract class Aardvark {
 		g2.fill(where);
 	}
 
+	/**
+		 * @author Fyggh
+		 *
+		 */
+	public static class BodyPart {
+		
+		private Shape shape;
+		private Paint fillPaint;
+		private Paint strokePaint;
+		private Stroke stroke;
+		private float strokeWidth;
+		private Integer layer;
+		
+		/**
+		 * @param shape
+		 * @param fillPaint
+		 * @param strokePaint
+		 * @param strokeWidth
+		 * @param bodyPartMap TODO
+		 */
+		protected BodyPart(Shape shape, Paint fillPaint, Paint strokePaint, float strokeWidth, Integer layer, Map<Integer, BodyPart> bodyPartMap) {
+			this(shape, fillPaint, strokePaint, new BasicStroke(strokeWidth), layer, bodyPartMap);
+		}
+
+		/**
+		 * @param shape
+		 * @param fillPaint
+		 * @param strokePaint
+		 * @param layer TODO
+		 * @param bodyPartMap TODO
+		 * @param strokeWidth
+		 */
+		protected BodyPart(Shape shape, Paint fillPaint, Paint strokePaint, Stroke stroke, Integer layer, Map<Integer, BodyPart> bodyPartMap) {
+			super();
+			this.shape = shape;
+			this.fillPaint = fillPaint;
+			this.strokePaint = strokePaint;
+			this.stroke = stroke;
+			this.layer = layer;
+			
+			bodyPartMap.put(layer, this);
+		}
+	
+	}
+
 	public static class Cartoon extends Aardvark {
 
 		private int x, y;
