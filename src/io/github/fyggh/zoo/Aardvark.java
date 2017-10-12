@@ -14,6 +14,7 @@ import java.awt.geom.Ellipse2D;
 import java.awt.geom.Line2D;
 import java.awt.geom.Path2D;
 import java.awt.geom.Rectangle2D;
+import java.awt.geom.AffineTransform;
 import java.awt.geom.Arc2D;
 import java.util.HashMap;
 import java.util.Map;
@@ -52,7 +53,7 @@ public abstract class Aardvark {
 		
 	}
 	
-	public void paint(Graphics2D g2) { //how does he want this? how is this being called?
+	public void draw(Graphics2D g2) { //how does he want this? how is this being called?
 		// TODO draw aardvark
 		
 		Ellipse2D.Double where = new Ellipse2D.Double(1000, 1000, 10, 10);
@@ -68,6 +69,7 @@ public abstract class Aardvark {
 		}
 		
 		aardvarkPath.closePath();
+		aardvarkPath.transform(new AffineTransform(1.0, 0.0, 0.0, 1.0, x, y)); // translate the path shape
 		
 		
 		
@@ -202,6 +204,22 @@ public abstract class Aardvark {
 			paintShape(g2, shape, fillPaint, new BasicStroke(strokeWidth), strokePaint);
 			
 		}
+	}
+
+	public static class RealisticUCI extends Aardvark {
+	
+		public RealisticUCI() {
+			// TODO Auto-generated constructor stub
+		}
+	
+		public RealisticUCI(int x, int y) {
+			super(x, y);
+			// TODO Auto-generated constructor stub
+		}
+		
+		
+		//https://codepen.io/thednp/pen/EgVqLw
+	
 	}
 	
 	

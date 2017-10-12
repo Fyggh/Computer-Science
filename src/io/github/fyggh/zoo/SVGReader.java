@@ -45,11 +45,13 @@ public final class SVGReader {
 	/**
 	 * 
 	 */
-	private SVGReader() {
+	public SVGReader() {
 		// TODO Auto-generated constructor stub
 	}
 	
 	public void read(String svg) {
+		
+		//svg.replaceAll(regex, replacement)
 		
 		//while (true_)
 		
@@ -59,7 +61,8 @@ public final class SVGReader {
 		
 		// example point string: 82.567,0,86,42.212,86,86
 		
-		String[] pointsStringArray = points.replace(',', ' ').replaceAll("-", " -").split(" "); //TODO add handling for negative exponents
+		String[] pointsStringArray = points.replace(',', ' ').replaceAll("(?<!\\A)-", " -").split("\\s+"); //TODO add handling for negative exponents
+		
 		double[] pointsDoubleArray = new double[pointsStringArray.length];
 		
 		for (int i = 0; i < pointsStringArray.length; i++) {
