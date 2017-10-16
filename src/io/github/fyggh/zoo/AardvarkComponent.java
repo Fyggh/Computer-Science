@@ -40,8 +40,8 @@ public class AardvarkComponent extends JComponent {
 		// TODO draw aardvark
 		Graphics2D g2 = (Graphics2D) g;
 		
-		Aardvark aardvark = new Aardvark.Cartoon();
-		aardvark.paint(g2);
+		Aardvark.RealisticUCI aardvark = new Aardvark.RealisticUCI(x, y);
+		aardvark.draw(g2);
 		
 	}
 

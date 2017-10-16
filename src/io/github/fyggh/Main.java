@@ -12,6 +12,7 @@ import io.github.fyggh.bankaccount.SavingsAccount;
 import io.github.fyggh.face.FaceViewer;
 import io.github.fyggh.flag.FlagViewer;
 import io.github.fyggh.gui.FrameViewer;
+import io.github.fyggh.zoo.Aardvark;
 import io.github.fyggh.zoo.AardvarkViewer;
 import io.github.fyggh.zoo.SVGReader;
 
@@ -43,6 +44,7 @@ public class Main {
 //		viewer.initializeFrame();
 		//System.out.println(scan.nextInt());
 		
+		/*
 		BankAccount acct1 = new BankAccount();
 		System.out.println(acct1.getBalance());
 		acct1.deposit(0.07);
@@ -63,15 +65,19 @@ public class Main {
 		List<Integer> list = new RandomArrayList<Integer>(rand -> rand.nextInt(), 10);
 		System.out.println(list.toString());
 		System.out.println(BinarySearch.search(list, 5));
+		*/
 		
-		//AardvarkViewer viewer = new AardvarkViewer();
-		//viewer.initializeFrame();
+		AardvarkViewer viewer = new AardvarkViewer();
+		viewer.initializeFrame();
 		
 		// https://stackoverflow.com/questions/8261543/how-do-i-get-a-graphic2d-object-to-follow-a-mouse-pointer-exactly-in-java
 		
+		//Aardvark a = new Aardvark.RealisticUCI();
 		
-		SVGReader reader = new SVGReader();
-		reader.extractPoints("-82.567,0,-86,42.212,86,86");
+		
+		
+		//SVGReader reader = new SVGReader();
+		//reader.extractPoints("-82.567,0,-86,42.212,86,86");
 	}
 
 	/**
