@@ -12,7 +12,7 @@ import io.github.fyggh.bankaccount.SavingsAccount;
 import io.github.fyggh.face.FaceViewer;
 import io.github.fyggh.flag.FlagViewer;
 import io.github.fyggh.gui.FrameViewer;
-import io.github.fyggh.zoo.Aardvark;
+import io.github.fyggh.zoo.AardvarkOld;
 import io.github.fyggh.zoo.AardvarkViewer;
 import io.github.fyggh.zoo.SVGReader;
 
