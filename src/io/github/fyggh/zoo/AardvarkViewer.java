@@ -15,13 +15,13 @@ public class AardvarkViewer {
 
 	JFrame frame = new JFrame();
 	
-	AardvarkComponent aardvark = new AardvarkComponent(20, 30);
+	AardvarkComponent aardvark = new AardvarkComponent(200, 30);
 	
 	public void initializeFrame() {
 		
 		frame.setTitle("Hello World");
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		frame.setSize(200, 200);
+		frame.setSize(2000, 2000);
 		
 		frame.add(aardvark);
 		

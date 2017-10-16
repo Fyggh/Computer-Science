@@ -3,6 +3,8 @@ package io.github.fyggh.zoo;
 import java.awt.BasicStroke;
 import java.awt.Color;
 import java.awt.Graphics2D;
+import java.awt.Paint;
+import java.awt.Stroke;
 import java.awt.geom.AffineTransform;
 import java.awt.geom.Path2D;
 import java.awt.geom.Point2D;
@@ -299,6 +301,9 @@ public class Aardvark {
 	 */
 	public void draw(Graphics2D g2) {
 		
+		Paint oldPaint = g2.getPaint();
+		Stroke oldStroke = g2.getStroke();
+		
 		g2.setPaint(AARDVARK_YELLOW);
 		g2.fill(yellowFillPath);
 		
@@ -310,6 +315,9 @@ public class Aardvark {
 		
 		g2.setPaint(Color.WHITE);
 		g2.fill(UCITextPath);
+		
+		g2.setPaint(oldPaint);
+		g2.setStroke(oldStroke);
 		
 	}
 
