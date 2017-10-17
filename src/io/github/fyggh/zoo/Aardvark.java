@@ -6,6 +6,8 @@ import java.awt.Graphics2D;
 import java.awt.Paint;
 import java.awt.Stroke;
 import java.awt.geom.AffineTransform;
+import java.awt.geom.Arc2D;
+import java.awt.geom.Ellipse2D;
 import java.awt.geom.Path2D;
 import java.awt.geom.Point2D;
 import java.util.ArrayList;
@@ -264,11 +266,57 @@ public class Aardvark {
 					prevControlPoint.setLocation(points[0], points[1]);
 					break;
 				case 'A':
+					double x1 = prevPoint.getX();
+					double y1 = prevPoint.getY();
+					double rx = points[0];
+					double ry = points[1];
+					double phi = points[2];
+					boolean isSmallArc = points[3] == 0 ? true : false;
+					boolean isCounterClockwise = points[4] == 0 ? true : false;
+					double x2 = points[5];
+					double y2 = points[6];
+					
+					double x1prime = (Math.cos(phi) * (x1 - x2) / 2) + (Math.sin(phi) * (y1 - y2) / 2);
+					double y1prime = (-1 * Math.sin(phi) * (x1 - x2) / 2) + (Math.cos(phi) * (y1 - y2) / 2);
+					
+					double cprimeNumerator = (Math.pow(rx, 2) * Math.pow(ry, 2)) - (Math.pow(rx, 2) * Math.pow(y1prime, 2)) - (Math.pow(ry, 2) * Math.pow(x1prime, 2));
+					double cprimeDenominator = (Math.pow(rx, 2) * Math.pow(y1prime, 2)) + (Math.pow(ry, 2) * Math.pow(x1prime, 2));
+					double scalarTerm = Math.sqrt(cprimeNumerator / cprimeDenominator);
+					scalarTerm = isCounterClockwise == isSmallArc ? scalarTerm *= -1 : scalarTerm;
+					
+					double cxprime = scalarTerm * (rx * y1prime / ry);
+					double cyprime = scalarTerm * (-1 * ry * x1prime / rx);
+					
+					double cx = (Math.cos(phi) * cxprime) + (-1 * Math.sin(phi) * cyprime) + ((x1 + x2) / 2);
+					double cy = (Math.sin(phi) * cxprime) + (Math.cos(phi) * cyprime) + ((y1 + y2) / 2);
+					
+					double minX = cx - Math.sqrt((Math.pow(rx, 2) * Math.pow(Math.cos(phi), 2)) + (Math.pow(ry, 2) * Math.pow(Math.sin(phi), 2)));
+					double minY = cy - Math.sqrt((Math.pow(rx, 2) * Math.pow(Math.sin(phi), 2)) + (Math.pow(ry, 2) * Math.pow(Math.cos(phi), 2)));
+					
+					Arc2D.Double arc1 = new Arc2D.Double(Arc2D.OPEN);
+					arc1.setFrame(minX, minY, 2 * (cx - minX), 2 * (cy - minY));
+					arc1.setAngles(x1, y1, x2, y2);
+					
+					Arc2D.Double arc2 = new Arc2D.Double(Arc2D.OPEN);
+					arc2.setFrame(minX, minY, 2 * (cx - minX), 2 * (cy - minY));
+					arc2.setAngles(x2, y2, x1, y1);
+					
+					Arc2D.Double arcToAppend;
+					
+					if (arc1.getAngleExtent() > arc2.getAngleExtent()) {
+						arcToAppend = isSmallArc ? arc2 : arc1;
+					}
+					else {
+						arcToAppend = isSmallArc ? arc1 : arc2;
+					}
+					
+					path.append(arcToAppend, true);
+					//arc.
 					//A 62.29, 62.29, 0, 0, 0, 51.58, 105.06
 					//42.46,105.06
 					//path.append(new Arc2D.Double(x, y, points[0], points[1], start, extent, type), connect);
 					
-					path.lineTo(points[5], points[6]); //temporary solution, to properly represent an arc, path.append must be called. but the math to go from the information provided by an SVG to the information required by a java arc is complicated and i'm tired.
+					//path.lineTo(points[5], points[6]); //temporary solution, to properly represent an arc, path.append must be called. but the math to go from the information provided by an SVG to the information required by a java arc is complicated and i'm tired.
 					//System.out.println("Uh oh, A alert");
 					break;
 				case 'L':
