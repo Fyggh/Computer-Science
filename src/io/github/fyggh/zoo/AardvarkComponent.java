@@ -8,6 +8,8 @@ import java.awt.Graphics2D;
 
 import javax.swing.JComponent;
 
+import io.github.fyggh.zoo.animals.Aardvark;
+
 /**
  * @author 200503041
  *

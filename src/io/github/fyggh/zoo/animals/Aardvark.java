@@ -1,4 +1,4 @@
-package io.github.fyggh.zoo;
+package io.github.fyggh.zoo.animals;
 
 import java.awt.BasicStroke;
 import java.awt.Color;
@@ -125,7 +125,7 @@ public class Aardvark {
 		parseSVG(UCI_TEXT_SVG_ABSOLUTE, UCITextInstructions);
 		parseSVG(STROKE_SVG_ABSOLUTE, strokeInstructions);
 		
-		//build the three paths
+		//build the four paths
 		yellowFillPath = buildPathFromInstructions(yellowFillInstructions);
 		blueFillPath = buildPathFromInstructions(blueFillInstructions);
 		blueFillPath.transform(new AffineTransform(1.0, 0.0, 0.0, 1.0, 59.115, 6.234)); //translate the blue torso to its proper location
