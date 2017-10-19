@@ -77,7 +77,7 @@ public class Panda{
 				g2.setColor(Color.WHITE);
 			
 				
-				g2.setClip(outereye);
+				//g2.setClip(outereye);
 				g2.setColor(Color.BLACK);
 				g2.fill(eye);
 		

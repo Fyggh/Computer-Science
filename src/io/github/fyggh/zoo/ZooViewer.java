@@ -1,5 +1,7 @@
 package io.github.fyggh.zoo;
 
+import java.awt.Toolkit;
+
 import javax.swing.JFrame;
 
 public class ZooViewer {
@@ -18,7 +20,7 @@ public class ZooViewer {
 		
 		frame.setTitle("Hello World");
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		frame.setSize(1000, 1000);
+		
 		
 		frame.add(zoo);
 		
@@ -30,7 +32,9 @@ public class ZooViewer {
 		//frame.add(flag);
 		
 		frame.setVisible(true);
-
+		frame.pack();
+		
+		frame.setSize(Toolkit.getDefaultToolkit().getScreenSize());
 		
 	}
 

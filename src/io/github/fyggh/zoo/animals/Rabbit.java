@@ -10,16 +10,16 @@ import java.awt.geom.Line2D;
 import java.awt.geom.Path2D;
 import java.awt.geom.Rectangle2D;
 
-public class rabbit {
+public class Rabbit {
     int xCoord, yCoord;
     double scale;
-    public rabbit(int x, int y, double s) {
+    public Rabbit(int x, int y, double s) {
         xCoord = x;
         yCoord = y;
         scale = s;
         
     }
-    public rabbit(int x, int y) {
+    public Rabbit(int x, int y) {
     	xCoord = x;
     	yCoord = y;
     	scale = .5;
@@ -38,7 +38,7 @@ public class rabbit {
     	Color outer = new Color(100,85,80);
     	Color inner = new Color(147,88,60);
     	
-    
+    	/*
     	 //background
     	Rectangle sky = new Rectangle(0, 0, scale(375), scale(220));
     	g2.setPaint(new Color(106,221,243));
@@ -61,7 +61,7 @@ public class rabbit {
         Line2D.Double ray5 = new Line2D.Double(adx(45), ady(22), adx(57), ady(27));
         g2.draw(ray5);
         g2.setStroke(new BasicStroke(1));
-       
+       */
         
         
         
