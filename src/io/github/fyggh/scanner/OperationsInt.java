@@ -1,11 +1,18 @@
+/**
+ * 
+ */
 package io.github.fyggh.scanner;
 
-public class Operations {
+/**
+ * @author 200503041
+ *
+ */
+public class OperationsInt {
 
-	double a;
-	double b;
+	int a;
+	int b;
 	
-	public Operations(double a, double b) {
+	public OperationsInt(int a, int b) {
 		this.a = a;
 		this.b = b;
 	}
@@ -26,7 +33,15 @@ public class Operations {
 		try {
 			System.out.println(a / b);
 		} catch (ArithmeticException e) {
-			System.err.println("Can't divide by 0, you fool."); // although it looks like double division by 0.0 returns Double.infinity?
+			System.err.println("Can't divide by 0, you fool.");
+		}
+	}
+	
+	public void printDoubleQuotient() {
+		try {
+			System.out.println((double) a / (double) b);
+		} catch (ArithmeticException e) {
+			System.err.println("Can't divide by 0, you fool.");
 		}
 	}
 	
@@ -34,7 +49,7 @@ public class Operations {
 		try {
 			System.out.println(a % b);
 		} catch (ArithmeticException e) {
-			System.err.println("Can't divide by 0, you fool."); // although double modulus looks like it returns NaN
+			System.err.println("Can't divide by 0, you fool.");
 		}
 	}
 	
