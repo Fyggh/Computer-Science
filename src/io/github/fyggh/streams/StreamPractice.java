@@ -6,8 +6,8 @@ public class StreamPractice {
 
 	public static void main(String[] args) {
 		
-		int sum = IntStream.rangeClosed(1, 100)
-				.filter(x -> x % 2 != 0)
+		int sum = IntStream.range(1, 1000)
+				.filter(x -> x % 3 == 0 || x % 5 == 0)
 				.sum();
 		
 		System.out.println(sum);
