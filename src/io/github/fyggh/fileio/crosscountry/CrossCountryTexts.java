@@ -13,7 +13,7 @@ public class CrossCountryTexts {
 			put("Bryce Barbee", "Reno");
 			put("Bryan Espinoza", "Signal Hill");
 			put("Antonio Jorgenson", "Footlocker");
-			put("Griffin Roach", )
+			//put("Griffin Roach", )
 		}};
 		
 
