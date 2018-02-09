@@ -13,10 +13,17 @@ public class PictureTester
   /** Method to test zeroBlue */
   public static void testZeroBlue()
   {
-    Picture beach = new Picture("beach.jpg");
+    Picture beach = new Picture("Laa-Laa.png");
     beach.explore();
     beach.zeroBlue();
     beach.explore();
+  }
+  
+  public static void testZeroGreen() {
+	  Picture laalaa = new Picture("Laa-Laa.png");
+	  laalaa.explore();
+	  laalaa.zeroGreen();
+	  laalaa.explore();
   }
   
   /** Method to test mirrorVertical */
@@ -60,7 +67,7 @@ public class PictureTester
     // uncomment a call here to run a test
     // and comment out the ones you don't want
     // to run
-    testZeroBlue();
+    testZeroGreen();
     //testKeepOnlyBlue();
     //testKeepOnlyRed();
     //testKeepOnlyGreen();

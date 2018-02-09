@@ -100,6 +100,16 @@ public class Picture extends SimplePicture
     }
   }
   
+  /** Method to set the green to 0 */
+  public void zeroGreen() {
+	  Pixel[][] pixels = this.getPixels2D();
+	  for (Pixel[] rowArray : pixels) {
+		  for (Pixel pixelObj : rowArray) {
+			  pixelObj.setGreen(0);
+		  }
+	  }
+  }
+  
   /** Method that mirrors the picture around a 
     * vertical mirror in the center of the picture
     * from left to right */
@@ -225,7 +235,7 @@ public class Picture extends SimplePicture
    */
   public static void main(String[] args) 
   {
-    Picture beach = new Picture("beach.jpg");
+    Picture beach = new Picture("Laa-Laa.png");
     beach.explore();
     beach.zeroBlue();
     beach.explore();

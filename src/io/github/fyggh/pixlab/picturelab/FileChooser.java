@@ -108,9 +108,9 @@ public class FileChooser
     // try to find the images directory
       try {
         // get the URL for where we loaded this class 
-        Class currClass = Class.forName("FileChooser");
+        Class currClass = Class.forName("io.github.fyggh.pixlab.picturelab.FileChooser");
         URL classURL = currClass.getResource("FileChooser.class");
-        URL fileURL = new URL(classURL,"../images/");
+        URL fileURL = new URL(classURL,"../../../../../../assets/images/");
         directory = fileURL.getPath();
         directory = URLDecoder.decode(directory, "UTF-8");
         dirFile = new File(directory);
@@ -118,8 +118,11 @@ public class FileChooser
           //setMediaPath(directory);
           return directory;
         }
+      } catch (ClassNotFoundException e) {
+    	  e.printStackTrace();
       } catch (Exception ex) {
-      }
+    	  System.out.println("Exception thrown in images directory logic.");
+      } 
       
       return directory;
   }
