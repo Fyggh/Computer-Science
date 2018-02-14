@@ -1,6 +1,6 @@
 package io.github.fyggh.pixlab.picturelab;
 
-import java.util.function.Function;
+//import java.util.function.Function;
 
 /**
  * This class contains class (static) methods that will help you test the
@@ -10,6 +10,8 @@ import java.util.function.Function;
  * @author Barbara Ericson
  */
 public class PictureTester {
+	
+	//static Picture laa = new Picture("Laa-Laa.png");
 	
 	/** Method to test zeroBlue */
 	public static void testZeroBlue() {
@@ -41,10 +43,39 @@ public class PictureTester {
 
 	/** Method to test mirrorVertical */
 	public static void testMirrorVertical() {
-		Picture caterpillar = new Picture("caterpillar.jpg");
+		Picture caterpillar = new Picture("Laa-Laa.png");
+		//caterpillar.mirrorVertical();
+		caterpillar.mirrorVerticalLeftToRight();
+		caterpillar.setTitle("testMirrorVertical");
 		caterpillar.explore();
-		caterpillar.mirrorVertical();
-		caterpillar.explore();
+	}
+	
+	/** Method to test mirrorVerticalRightToLeft */
+	public static void testMirrorVerticalRightToLeft() {
+		Picture laa = new Picture("Laa-Laa.png");
+		laa.mirrorVerticalRightToLeft();
+		laa.explore();
+	}
+
+	private static void testMirrorHorizontalBottomToTop() {
+		Picture laa = new Picture("Laa-Laa.png");
+		laa.mirrorHorizontalBottomToTop();
+		laa.setTitle("testMirrorHorizontalBottomToTop");
+		laa.explore();
+	}
+
+	private static void testMirrorHorizontalTopToBottom() {
+		Picture laa = new Picture("Laa-Laa.png");
+		laa.mirrorHorizontalTopToBottom();
+		laa.setTitle("testMirrorHorizontalTopToBottom");
+		laa.explore();
+	}
+	
+	private static void testMirrorDiagonalBottomToTop() {
+		Picture laa = new Picture("Laa-Laa.png");
+		laa.mirrorDiagonalBottomToTop();
+		laa.setTitle("testMirrorDiagonalBottomToTop");
+		laa.explore();
 	}
 
 	/** Method to test mirrorTemple */
@@ -85,7 +116,11 @@ public class PictureTester {
 		// testNegate();
 		// testGrayscale();
 		// testFixUnderwater();
-		// testMirrorVertical();
+		testMirrorVertical();
+		testMirrorVerticalRightToLeft();
+		testMirrorHorizontalTopToBottom();
+		testMirrorHorizontalBottomToTop();
+		testMirrorDiagonalBottomToTop();
 		// testMirrorTemple();
 		// testMirrorArms();
 		// testMirrorGull();

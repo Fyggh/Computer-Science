@@ -124,6 +124,82 @@ public class Picture extends SimplePicture
 	  }
   }
   
+  public void mirrorVerticalLeftToRight() {
+	  Pixel[][] pixels = this.getPixels2D();
+	  Pixel leftPixel;
+	  Pixel rightPixel;
+	  
+	  for (Pixel[] rowArray : pixels) {
+		  for (int i = 0; i < rowArray.length; i++) {
+			  leftPixel = rowArray[i];
+			  rightPixel = rowArray[rowArray.length - 1 - i];
+			  rightPixel.setColor(leftPixel.getColor());
+		  }
+	  }
+  }
+  
+  public void mirrorVerticalRightToLeft() {
+	  Pixel[][] pixels = this.getPixels2D();
+	  Pixel leftPixel;
+	  Pixel rightPixel;
+	  
+	  for (Pixel[] rowArray : pixels) {
+		  for (int i = 0; i < rowArray.length / 2; i++) {
+			  leftPixel = rowArray[i];
+			  rightPixel = rowArray[rowArray.length - 1 - i];
+			  leftPixel.setColor(rightPixel.getColor());
+		  }
+	  }
+  }
+  
+  public void mirrorHorizontalTopToBottom() {
+	  Pixel[][] pixels = this.getPixels2D();
+	  Pixel topPixel;
+	  Pixel bottomPixel;
+	  
+	  for (int row = 0; row < pixels.length / 2; row++) {
+		  for (int col = 0; col < pixels[0].length; col++) {
+			  topPixel = pixels[row][col];
+			  bottomPixel = pixels[pixels.length - 1 - row][col];
+			  bottomPixel.setColor(topPixel.getColor());
+		  }
+	  }
+  }
+  
+  public void mirrorHorizontalBottomToTop() {
+	  Pixel[][] pixels = this.getPixels2D();
+	  Pixel topPixel;
+	  Pixel bottomPixel;
+	  
+	  for (int row = 0; row < pixels.length / 2; row++) {
+		  for (int col = 0; col < pixels[0].length; col++) {
+			  topPixel = pixels[row][col];
+			  bottomPixel = pixels[pixels.length - 1 - row][col];
+			  topPixel.setColor(bottomPixel.getColor());
+		  }
+	  }
+  }
+  
+  public void mirrorDiagonalBottomToTop() {
+	  Pixel[][] pixels = this.getPixels2D();
+	  Pixel topPixel;
+	  Pixel bottomPixel;
+	  
+	  int height = pixels.length;
+	  int width = pixels[0].length;
+	  
+	  double ratioHeightToWidth = (double) height / (double) width;
+	  
+	  for (int row = 0; row < height; row++) {
+		  for (int col = 0; col < width - row / ratioHeightToWidth; col++) {
+			  topPixel = pixels[row][col];
+			  //TODO this isn't right
+			  bottomPixel = pixels[height - 1 - row][width - 1 - col];
+			  topPixel.setColor(bottomPixel.getColor());
+		  }
+	  }
+  }
+  
   /**
    * Method that sets a picture to grayscale
    */
