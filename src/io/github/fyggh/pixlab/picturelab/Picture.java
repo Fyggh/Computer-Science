@@ -194,7 +194,7 @@ public class Picture extends SimplePicture
 		  for (int col = 0; col < width - row / ratioHeightToWidth; col++) {
 			  topPixel = pixels[row][col];
 			  //TODO this isn't right
-			  bottomPixel = pixels[height - 1 - row][width - 1 - col];
+			  bottomPixel = pixels[height - 1 - (int) (col * ratioHeightToWidth)][width - 1 - (int) (row / ratioHeightToWidth)];
 			  topPixel.setColor(bottomPixel.getColor());
 		  }
 	  }
