@@ -78,6 +78,14 @@ public class PictureTester {
 		laa.explore();
 	}
 
+	private static void testShuffle() {
+		Picture laa = new Picture("Laa-Laa.png");
+		laa.shuffle(20);
+		laa.setTitle("testShuffle");
+		laa.explore();
+		
+	}
+
 	/** Method to test mirrorTemple */
 	public static void testMirrorTemple() {
 		Picture temple = new Picture("temple.jpg");
@@ -95,8 +103,8 @@ public class PictureTester {
 
 	/** Method to test edgeDetection */
 	public static void testEdgeDetection() {
-		Picture swan = new Picture("swan.jpg");
-		swan.edgeDetection(10);
+		Picture swan = new Picture("Laa-Laa.png");
+		swan.edgeDetection(20);
 		swan.explore();
 	}
 
@@ -107,27 +115,28 @@ public class PictureTester {
 		// uncomment a call here to run a test
 		// and comment out the ones you don't want
 		// to run
-		testZeroGreen();
-		testNegate();
-		testGrayscale();
+		// testZeroGreen();
+		// testNegate();
+		// testGrayscale();
 		// testKeepOnlyBlue();
 		// testKeepOnlyRed();
 		// testKeepOnlyGreen();
 		// testNegate();
 		// testGrayscale();
 		// testFixUnderwater();
-		testMirrorVertical();
-		testMirrorVerticalRightToLeft();
-		testMirrorHorizontalTopToBottom();
-		testMirrorHorizontalBottomToTop();
+		// testMirrorVertical();
+		// testMirrorVerticalRightToLeft();
+		// testMirrorHorizontalTopToBottom();
+		// testMirrorHorizontalBottomToTop();
 		testMirrorDiagonalBottomToTop();
+		testShuffle();
 		// testMirrorTemple();
 		// testMirrorArms();
 		// testMirrorGull();
 		// testMirrorDiagonal();
 		// testCollage();
 		// testCopy();
-		// testEdgeDetection();
+		testEdgeDetection();
 		// testEdgeDetection2();
 		// testChromakey();
 		// testEncodeAndDecode();

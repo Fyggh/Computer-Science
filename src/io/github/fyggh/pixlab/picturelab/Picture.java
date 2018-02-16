@@ -193,7 +193,6 @@ public class Picture extends SimplePicture
 	  for (int row = 0; row < height; row++) {
 		  for (int col = 0; col < width - row / ratioHeightToWidth; col++) {
 			  topPixel = pixels[row][col];
-			  //TODO this isn't right
 			  bottomPixel = pixels[height - 1 - (int) (col * ratioHeightToWidth)][width - 1 - (int) (row / ratioHeightToWidth)];
 			  topPixel.setColor(bottomPixel.getColor());
 		  }
@@ -210,6 +209,25 @@ public class Picture extends SimplePicture
 			  int grayValue = (int) pixel.getAverage();
 			  Color grayColor = new Color(grayValue, grayValue, grayValue);
 			  pixel.setColor(grayColor);
+		  }
+	  }
+  }
+  
+  
+  
+  /**
+   * 
+   */
+  public void shuffle(int distance) {
+	  Pixel[][] pixels = this.getPixels2D();
+	  Color tempColor;
+	  for (Pixel[] rowArray : pixels) {
+		  for (int i = (2 * distance) - 1; i < rowArray.length; i += (2 * distance)) {
+			  for (int j = i - distance + 1; j <= i; j++) {
+				  tempColor = rowArray[j].getColor();
+				  rowArray[j].setColor(rowArray[j - distance].getColor());
+				  rowArray[j - distance].setColor(tempColor);
+			  }
 		  }
 	  }
   }

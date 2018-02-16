@@ -9,12 +9,30 @@ package io.github.fyggh.dijkstra;
  */
 public abstract class Edge {
 	
-	Node a;
-	Node b;
+	Node originNode;
+	Node terminalNode;
 	
-	public Edge(Node a, Node b) {
-		this.a = a;
-		this.b = b;
+	public Edge(Node originNode, Node terminalNode) {
+		this.originNode = originNode;
+		this.terminalNode = terminalNode;
 	}
+
+	/**
+	 * @return the originNode
+	 */
+	public Node getOriginNode() {
+		return originNode;
+	}
+
+	/**
+	 * @return the terminalNode
+	 */
+	public Node getTerminalNode() {
+		return terminalNode;
+	}
+	
+//	public Node getOtherNode(Node node) {
+//		return node.equals(originNode) ? terminalNode : originNode;
+//	}
 	
 }
