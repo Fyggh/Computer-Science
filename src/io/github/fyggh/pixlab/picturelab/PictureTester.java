@@ -94,9 +94,9 @@ public class PictureTester {
 		
 	}
 
-	private static void testPuzzleNoRep() {
+	private static void testPuzzleNoRep(int a, int b) {
 		Picture laa = new Picture("Laa-Laa.png");
-		laa.puzzleNoRepetition(5, 3);
+		laa.puzzleNoRepetition(a, b);
 		laa.setTitle("testPuzzleNoRep");
 		laa.explore();
 		
@@ -160,7 +160,7 @@ public class PictureTester {
 		// testSetRedToHalfValueInTopHalf();
 		// testClearBlueOverValue(200);
 		// testGetAverageForColumn(0);
-		testPuzzle();
-		testPuzzleNoRep();
+		//testPuzzle();
+		testPuzzleNoRep(1,1);
 	}
 }

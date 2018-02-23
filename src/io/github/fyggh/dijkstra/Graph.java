@@ -14,16 +14,16 @@ public class Graph {
 		this.nodes = nodes;
 	}
 	
-	public int solve(Node startNode, Node endNode) {
-		startNode.setDistance(0);
-		solution.add(startNode);
-		for (ListIterator<WeightedEdge> iter = startNode.getConnections().listIterator(); iter.hasNext(); ) {
-			Node currentNode = iter.next().getTerminalNode(); // TODO bad bad bad
-			if (currentNode.isReached()) {
-				//if (currentNode.getDistance() > )
-			}
-		}
-	}
+//	public int solve(Node startNode, Node endNode) {
+//		startNode.setDistance(0);
+//		solution.add(startNode);
+//		for (ListIterator<WeightedEdge> iter = startNode.getConnections().listIterator(); iter.hasNext(); ) {
+//			Node currentNode = iter.next().getTerminalNode(); // TODO bad bad bad
+//			if (currentNode.isReached()) {
+//				//if (currentNode.getDistance() > )
+//			}
+//		}
+//	}
 	
 	// for testing
 	public static void main(String[] args) {
