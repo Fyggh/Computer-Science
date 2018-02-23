@@ -232,6 +232,153 @@ public class Picture extends SimplePicture
 	  }
   }
   
+  public void puzzle(int numRows, int numColumns) {
+	  Pixel[][] pixels = this.getPixels2D();
+	  
+	  Random rand = new Random();
+	  
+	  int height = pixels.length;
+	  int width = pixels[0].length;
+	  
+	  int tileHeight = height / numRows;
+	  int tileWidth = width / numColumns;
+	  int numTiles = numRows * numColumns;
+	  
+	  int swapTileRow;
+	  int swapTileCol;
+	  
+	  int originTileRowPos;
+	  int originTileColPos;
+	  
+	  int swapTileRowPos;
+	  int swapTileColPos;
+	  
+	  //Pixel[][] tileSpace = new Pixel[tileHeight * numRows][tileWidth * numColumns];
+	  Color[][] colorTileSpace = new Color[tileHeight * numRows][tileWidth * numColumns];
+	  //Pixel[][] tempTile = new Pixel[tileHeight][tileWidth];
+	  
+	  //set entire image to black while transferring pixels within puzzle to tileSpace
+	  for (int row = 0; row < height; row++) {
+		  for (int col = 0; col < width; col++) {
+			  
+			  Pixel px = pixels[row][col]; //TODO bad
+			  
+			  if (row < tileHeight * numRows && col < tileWidth * numColumns) {
+				  //tileSpace[row][col] = px;//new Pixel(this,row,col);//new Pixel().setColor(px.getColor());//pixels[row][col];
+				  colorTileSpace[row][col] = px.getColor();
+			  }
+			  
+			  pixels[row][col].setColor(Color.BLACK);
+			  
+		  }
+	  }
+	  
+	  for (int tileRow = 0; tileRow < numRows; tileRow++) {
+		  for (int tileCol = 0; tileCol < numColumns; tileCol++) {
+			  
+			  swapTileRow = rand.nextInt(numRows);
+			  swapTileCol = rand.nextInt(numColumns);
+			  
+			  originTileRowPos = tileRow * tileHeight;
+			  originTileColPos = tileCol * tileWidth;
+			  
+			  swapTileRowPos = swapTileRow * tileHeight;
+			  swapTileColPos = swapTileCol * tileWidth;
+			  
+			  int k;
+			  int l;
+			  
+			  k = swapTileRowPos;
+			  for (int i = originTileRowPos; i < originTileRowPos + tileHeight; i++) {
+				  l = swapTileColPos;
+				  for (int j = originTileColPos; j < originTileColPos + tileWidth; j++) {
+					  
+					  pixels[i][j].setColor(colorTileSpace[k][l]);
+					  pixels[k][l].setColor(colorTileSpace[i][j]);
+					  l++;
+				  }
+				  k++;
+			  }
+			  
+		  }
+	  }
+  }
+  
+  public void puzzleNoRepetition(int numRows, int numColumns) {
+	  Pixel[][] pixels = this.getPixels2D();
+	  
+	  Random rand = new Random();
+	  
+	  int height = pixels.length;
+	  int width = pixels[0].length;
+	  
+	  int tileHeight = height / numRows;
+	  int tileWidth = width / numColumns;
+	  int numTiles = numRows * numColumns;
+	  
+	  int swapTileRow;
+	  int swapTileCol;
+	  
+	  int originTileRowPos;
+	  int originTileColPos;
+	  
+	  int swapTileRowPos;
+	  int swapTileColPos;
+	  
+	  //Pixel[][] tileSpace = new Pixel[tileHeight * numRows][tileWidth * numColumns];
+	  Color[][] colorTileSpace = new Color[tileHeight * numRows][tileWidth * numColumns];
+	  //Pixel[][] tempTile = new Pixel[tileHeight][tileWidth];
+	  
+	  //set entire image to black while transferring pixels within puzzle to tileSpace
+	  for (int row = 0; row < height; row++) {
+		  for (int col = 0; col < width; col++) {
+			  
+			  Pixel px = pixels[row][col]; //TODO bad
+			  
+			  if (row < tileHeight * numRows && col < tileWidth * numColumns) {
+				  //tileSpace[row][col] = px;//new Pixel(this,row,col);//new Pixel().setColor(px.getColor());//pixels[row][col];
+				  colorTileSpace[row][col] = px.getColor();
+			  }
+			  
+			  pixels[row][col].setColor(Color.BLACK);
+			  
+		  }
+	  }
+	  
+	  for (int tileRow = 0; tileRow < numRows; tileRow++) {
+		  for (int tileCol = 0; tileCol < numColumns; tileCol++) {
+			  
+			  swapTileRow = rand.nextInt(numRows);
+			  swapTileCol = rand.nextInt(numColumns);
+			  
+			  originTileRowPos = tileRow * tileHeight;
+			  originTileColPos = tileCol * tileWidth;
+			  
+			  swapTileRowPos = swapTileRow * tileHeight;
+			  swapTileColPos = swapTileCol * tileWidth;
+			  
+			  int k;
+			  int l;
+			  
+			  k = swapTileRowPos;
+			  for (int i = originTileRowPos; i < originTileRowPos + tileHeight; i++) {
+				  l = swapTileColPos;
+				  for (int j = originTileColPos; j < originTileColPos + tileWidth; j++) {
+					  
+					  pixels[i][j].setColor(colorTileSpace[k][l]);
+					  Color tempColor = colorTileSpace[k][l];
+					  colorTileSpace[k][l] = colorTileSpace[i][j]; //new Color(colorTileSpace[i][j].getRGB()); ;
+					  pixels[k][l].setColor(colorTileSpace[i][j]);
+					  colorTileSpace[i][j] = tempColor;
+					  l++;
+				  }
+				  k++;
+			  }
+			  
+		  }
+	  }
+  }
+  
   /** Method that mirrors the picture around a 
     * vertical mirror in the center of the picture
     * from left to right */

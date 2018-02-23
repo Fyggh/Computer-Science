@@ -86,6 +86,22 @@ public class PictureTester {
 		
 	}
 
+	private static void testPuzzle() {
+		Picture laa = new Picture("Laa-Laa.png");
+		laa.puzzle(5, 3);
+		laa.setTitle("testPuzzle");
+		laa.explore();
+		
+	}
+
+	private static void testPuzzleNoRep() {
+		Picture laa = new Picture("Laa-Laa.png");
+		laa.puzzleNoRepetition(5, 3);
+		laa.setTitle("testPuzzleNoRep");
+		laa.explore();
+		
+	}
+
 	/** Method to test mirrorTemple */
 	public static void testMirrorTemple() {
 		Picture temple = new Picture("temple.jpg");
@@ -128,15 +144,15 @@ public class PictureTester {
 		// testMirrorVerticalRightToLeft();
 		// testMirrorHorizontalTopToBottom();
 		// testMirrorHorizontalBottomToTop();
-		testMirrorDiagonalBottomToTop();
-		testShuffle();
+		//testMirrorDiagonalBottomToTop();
+		//testShuffle();
 		// testMirrorTemple();
 		// testMirrorArms();
 		// testMirrorGull();
 		// testMirrorDiagonal();
 		// testCollage();
 		// testCopy();
-		testEdgeDetection();
+		//testEdgeDetection();
 		// testEdgeDetection2();
 		// testChromakey();
 		// testEncodeAndDecode();
@@ -144,5 +160,7 @@ public class PictureTester {
 		// testSetRedToHalfValueInTopHalf();
 		// testClearBlueOverValue(200);
 		// testGetAverageForColumn(0);
+		testPuzzle();
+		testPuzzleNoRep();
 	}
 }
