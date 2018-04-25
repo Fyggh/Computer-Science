@@ -1,6 +1,7 @@
 package io.github.fyggh.cardgame;
 
 import java.util.List;
+import java.util.Random;
 import java.util.ArrayList;
 
 /**
@@ -21,6 +22,11 @@ public class Deck {
 	 * The next card to be dealt is at size - 1.
 	 */
 	private int size;
+	
+	/**
+	 * rand is a random number generator used to shuffle the deck.
+	 */
+	private Random rand;
 
 
 	/**
@@ -34,7 +40,7 @@ public class Deck {
 	public Deck(String[] ranks, String[] suits, int[] values) {
 		
 		cards = new ArrayList<>();
-		
+		rand = new Random();
 		size = 0;
 		
 		for (int i = 0; i < ranks.length; i++) {
@@ -74,7 +80,45 @@ public class Deck {
 	 * and reset the size to represent the entire deck.
 	 */
 	public void shuffle() {
-		/* *** TO BE IMPLEMENTED IN ACTIVITY 4 *** */
+		
+		List<Card> shuffledCards = new ArrayList<>();
+		
+		while (cards.size() > 0) {
+			shuffledCards.add(
+					cards.remove(rand.nextInt(cards.size()))
+					);
+		}
+		
+		cards = shuffledCards;
+		this.size = cards.size();
+		
+	}
+	
+	/**
+	 * Randomly permute the undealt cards using an in-place algorithm
+	 */
+	public void inPlaceShuffle() {
+		
+		int swapIndex;
+		
+		for (int i = size - 1; i > 0; i--) {
+			swapIndex = rand.nextInt(i);
+			
+			cards.add(i, cards.remove(swapIndex));
+			cards.add(swapIndex, cards.remove(i - 1));
+		}
+		
+	}
+	
+	/**
+	 * Randomly permute the given collection of cards
+	 * according to a realistic model
+	 * and reset the size to represent the entire deck.
+	 */
+	public void realisticTotalShuffle() {
+		int midpointIndex = (int) ((cards.size() / 2) + rand.nextGaussian() * 2);
+		
+		
 	}
 
 	/**
