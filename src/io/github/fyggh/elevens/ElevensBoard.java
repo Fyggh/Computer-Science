@@ -122,7 +122,7 @@ public class ElevensBoard extends Board {
 		
 		for (Integer i : selectedCards) {
 			
-			Card c = cardAt(selectedCards.get(i));
+			Card c = super.cardAt(i);
 			
 			if ("jack".equals(c.rank())) 
 				isJack = true;
